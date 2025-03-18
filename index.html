@@ -236,11 +236,12 @@
     <!-- Feedback Section -->
     <div class="feedback-form">
         <h2>Leave Your Feedback</h2>
-        <form action="#" method="post">
-            <input type="text" placeholder="Your Name" required>
-            <textarea placeholder="Your Feedback" rows="4" required></textarea>
+        <form id="feedback-form" onsubmit="handleFeedback(event)">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <textarea id="feedback" placeholder="Your Feedback" rows="4" required></textarea>
             <button type="submit">Submit Feedback</button>
         </form>
+        <div id="feedback-status" style="color: #FFD700; margin-top: 20px;"></div>
     </div>
 
     <!-- Rating Section -->
@@ -320,6 +321,21 @@
             }
         });
 
+        // Function to handle feedback submission
+        function handleFeedback(event) {
+            event.preventDefault(); // Prevent form submission
+            const name = document.getElementById('name').value;
+            const feedback = document.getElementById('feedback').value;
+
+            if (name && feedback) {
+                // Simulate a successful submission
+                document.getElementById('feedback-status').textContent = "Thank you for your feedback, " + name + "!";
+                document.getElementById('feedback-form').reset(); // Clear the form
+            } else {
+                document.getElementById('feedback-status').textContent = "Please fill out all fields.";
+            }
+        }
+
         // Function to copy the key text to the clipboard
         function copyKey() {
             const keyText = document.getElementById('key-box').textContent;
@@ -370,6 +386,7 @@
             }
         }
     </script>
+
 </body>
 
 </html>
