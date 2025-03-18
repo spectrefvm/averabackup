@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Avera.Solutions</title>
 
-    <!-- Link to your external CSS file -->
+    <!-- Link to external CSS file -->
     <link rel="stylesheet" href="style.css">
 
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <style>
-        /* Styling for the body */
+        /* General Body Styling */
         body {
             margin: 0;
             font-family: 'Poppins', sans-serif;
@@ -72,6 +72,47 @@
             background-color: #5865F2;
         }
 
+        /* Arrow Section for Item Switching */
+        .item-container {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .item {
+            display: none;
+            text-align: center;
+        }
+
+        .item.active {
+            display: block;
+        }
+
+        .item img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .arrow-button {
+            font-size: 36px;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: background 0.3s ease;
+        }
+
+        .arrow-button:hover {
+            background: #5865F2;
+        }
+
+        /* Notification after copying */
         .notification {
             position: fixed;
             top: 20px;
@@ -113,6 +154,34 @@
         </h3>
     </div>
 
+    <!-- Downloadable Options with Arrows -->
+    <div class="item-container">
+        <button class="arrow-button" id="prev-btn" onclick="prevItem()">&#10094;</button>
+
+        <!-- Item 1: FiveM -->
+        <div class="item active" id="item1">
+            <h3>FiveM</h3>
+            <img src="https://via.placeholder.com/300x200?text=FiveM" alt="FiveM">
+            <a href="#" class="btn">Download FiveM</a>
+        </div>
+
+        <!-- Item 2: Spoofer -->
+        <div class="item" id="item2">
+            <h3>Spoofer</h3>
+            <img src="https://via.placeholder.com/300x200?text=Spoofer" alt="Spoofer">
+            <a href="#" class="btn">Download Spoofer</a>
+        </div>
+
+        <!-- Item 3: Valorant -->
+        <div class="item" id="item3">
+            <h3>Valorant</h3>
+            <img src="https://via.placeholder.com/300x200?text=Valorant" alt="Valorant">
+            <a href="#" class="btn">Download Valorant</a>
+        </div>
+
+        <button class="arrow-button" id="next-btn" onclick="nextItem()">&#10095;</button>
+    </div>
+
     <!-- Dark Mode / Light Mode Toggle -->
     <button id="dark-mode-toggle" onclick="toggleDarkMode()">
         <i id="mode-icon" class="fas fa-moon"></i>
@@ -127,7 +196,7 @@
         // Function to copy the key text to the clipboard
         function copyKey() {
             const keyText = document.getElementById('key-box').textContent;
-            navigator.clipboard.writeText(keyText).then(function() {
+            navigator.clipboard.writeText(keyText).then(function () {
                 // Notify the user that the text was copied
                 showNotification("Key copied to clipboard!");
 
@@ -139,7 +208,7 @@
                 setTimeout(() => {
                     keyBox.style.transform = "scale(1)";
                 }, 300);
-            }).catch(function(err) {
+            }).catch(function (err) {
                 console.error('Error copying text: ', err);
             });
         }
@@ -170,6 +239,32 @@
             } else {
                 modeIcon.classList.remove("fa-sun");
                 modeIcon.classList.add("fa-moon"); // Moon icon for dark mode
+            }
+        }
+
+        // Switch between items (left and right arrows)
+        let currentItem = 1;
+
+        function nextItem() {
+            const totalItems = 3;
+            currentItem = (currentItem % totalItems) + 1;
+            updateItems();
+        }
+
+        function prevItem() {
+            const totalItems = 3;
+            currentItem = (currentItem - 2 + totalItems) % totalItems + 1;
+            updateItems();
+        }
+
+        function updateItems() {
+            for (let i = 1; i <= 3; i++) {
+                const item = document.getElementById('item' + i);
+                if (i === currentItem) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
             }
         }
     </script>
