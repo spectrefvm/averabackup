@@ -1,1 +1,20 @@
-sss
+/* Styling for the h1 */
+.title {
+    font-size: 48px;
+    font-weight: 600;
+    letter-spacing: -1px;
+    color: white;
+    background: linear-gradient(45deg, #7800d2, #00d4ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    padding: 10px;
+    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease-in-out;
+}
+
+.title:hover {
+    transform: scale(1.1);
+    text-shadow: 0 8px 12px rgba(0, 0, 0, 0.8), 0 3px 6px rgba(0, 0, 0, 0.5);
+}
