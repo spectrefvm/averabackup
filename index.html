@@ -140,77 +140,6 @@
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
         }
 
-        /* Rating Section Styles */
-        .rating-section {
-            background-color: rgba(0, 0, 0, 0.5);
-            padding: 40px;
-            border-radius: 10px;
-            margin-top: 50px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .rating-section h2 {
-            color: white;
-            font-size: 30px;
-            margin-bottom: 20px;
-        }
-
-        .stars {
-            font-size: 24px;
-            color: #FFD700;
-        }
-
-        /* YouTube Video Embed Styling */
-        .video-container {
-            margin-top: 40px;
-        }
-
-        .video-container iframe {
-            width: 100%;
-            max-width: 800px;
-            height: 450px;
-            border-radius: 10px;
-        }
-
-        /* Feedback Section */
-        .feedback-form {
-            margin-top: 40px;
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0.4);
-            border-radius: 8px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .feedback-form input,
-        .feedback-form textarea {
-            width: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            border-radius: 8px;
-            border: none;
-            background-color: rgba(255, 255, 255, 0.1);
-            color: white;
-            font-size: 16px;
-        }
-
-        .feedback-form button {
-            background-color: #FFD700;
-            color: black;
-            padding: 12px 25px;
-            border-radius: 8px;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        .feedback-form button:hover {
-            background-color: #F8C400;
-        }
-
     </style>
 </head>
 
@@ -226,34 +155,6 @@
         <a href="./files/avera-solutions.exe" target="_blank">
             <button>Install Loader</button>
         </a>
-    </div>
-
-    <!-- YouTube Video Embed -->
-    <div class="video-container">
-        <iframe src="https://www.youtube.com/embed/VIDEO_ID_HERE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
-
-    <!-- Feedback Section -->
-    <div class="feedback-form">
-        <h2>Leave Your Feedback</h2>
-        <form id="feedback-form" onsubmit="handleFeedback(event)">
-            <input type="text" id="name" placeholder="Your Name" required>
-            <textarea id="feedback" placeholder="Your Feedback" rows="4" required></textarea>
-            <button type="submit">Submit Feedback</button>
-        </form>
-        <div id="feedback-status" style="color: #FFD700; margin-top: 20px;"></div>
-    </div>
-
-    <!-- Rating Section -->
-    <div class="rating-section">
-        <h2>Rate Us</h2>
-        <div class="stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star-half-alt"></i>
-        </div>
     </div>
 
     <!-- Dark Mode / Light Mode Toggle -->
@@ -321,37 +222,22 @@
             }
         });
 
-        // Function to handle feedback submission
-        function handleFeedback(event) {
-            event.preventDefault(); // Prevent form submission
-            const name = document.getElementById('name').value;
-            const feedback = document.getElementById('feedback').value;
-
-            if (name && feedback) {
-                // Simulate a successful submission
-                document.getElementById('feedback-status').textContent = "Thank you for your feedback, " + name + "!";
-                document.getElementById('feedback-form').reset(); // Clear the form
-            } else {
-                document.getElementById('feedback-status').textContent = "Please fill out all fields.";
-            }
-        }
-
         // Function to copy the key text to the clipboard
         function copyKey() {
             const keyText = document.getElementById('key-box').textContent;
-            navigator.clipboard.writeText(keyText).then(function() {
+            navigator.clipboard.writeText(keyText).then(function () {
                 // Notify the user that the text was copied
                 showNotification("Key copied to clipboard!");
-                
+
                 // Shrink the key box after copying
                 const keyBox = document.getElementById('key-box');
                 keyBox.style.transform = "scale(0.9)";
-                
+
                 // Reset the size of the key box after a short delay
                 setTimeout(() => {
                     keyBox.style.transform = "scale(1)";
                 }, 300);
-            }).catch(function(err) {
+            }).catch(function (err) {
                 console.error('Error copying text: ', err);
             });
         }
