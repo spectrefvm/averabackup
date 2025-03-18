@@ -5,109 +5,84 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Avera.Solutions</title>
+
+    <!-- Link to your external CSS file -->
     <link rel="stylesheet" href="style.css">
+
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-    
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
-
-        /* General Body Styles */
+        /* Styling for the body */
         body {
             margin: 0;
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(45deg, #1a073d, #000); /* Default background gradient */
+            background: linear-gradient(45deg, #1a073d, #000);
             color: white;
             text-align: center;
-            position: relative;
-            padding: 50px 0; /* Reduced padding to make it smaller */
+            padding: 50px 0;
             overflow-x: hidden;
-            transition: background 0.3s ease, color 0.3s ease; /* Smooth transition between modes */
+            transition: background 0.3s ease, color 0.3s ease;
             min-height: 100vh;
         }
 
-        /* Dark Mode Overrides */
+        /* Dark Mode Styling */
         body.dark-mode {
-            background: linear-gradient(45deg, #333, #000); /* Dark mode gradient */
+            background: linear-gradient(45deg, #333, #000);
             color: white;
         }
 
         h1 {
-            font-size: 36px; /* Reduced font size */
-            margin-bottom: 30px; /* Reduced margin */
+            font-size: 48px;
+            font-weight: 600;
+            letter-spacing: -1px;
+            color: white;
+            background: linear-gradient(45deg, #7800d2, #00d4ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+            padding: 10px;
+            text-shadow: 0 4px 6px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Key Box Styling */
+        .key-box-container {
+            margin-top: 30px;
+            padding: 20px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.2);
+            display: inline-block;
+        }
+
+        .key-box {
+            font-size: 20px;
             font-weight: bold;
             color: #fff;
-            letter-spacing: -1px;
-        }
-
-        /* Carousel Container */
-        .carousel-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 20px;
-            flex-direction: column;
-            position: relative;
-            max-width: 80%; /* Smaller width */
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .carousel-content {
-            display: none;
-            text-align: center;
-            margin: 20px;
-        }
-
-        .carousel-content.active {
-            display: block;
-        }
-
-        .carousel-content img {
-            max-width: 70%; /* Smaller images */
-            height: auto;
-            border-radius: 15px;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
-        }
-
-        .carousel-button {
-            background-color: #5865F2;
-            color: white;
-            border: none;
-            padding: 12px 25px;
+            padding: 15px;
+            border: 2px solid #5865F2;
             border-radius: 8px;
-            font-size: 16px;
-            margin-top: 20px;
             cursor: pointer;
+            background: rgba(0, 0, 0, 0.6);
             transition: background-color 0.3s ease;
         }
 
-        .carousel-button:hover {
-            background-color: #4752c4;
+        .key-box:hover {
+            background-color: #5865F2;
         }
 
-        /* Left and Right Arrow Buttons */
-        .arrow-button {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.6);
+        .notification {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.7);
             color: white;
-            border: none;
-            padding: 10px;
-            border-radius: 50%;
-            font-size: 24px;
-            cursor: pointer;
-            z-index: 1000;
-        }
-
-        .arrow-left {
-            left: 10px;
-        }
-
-        .arrow-right {
-            right: 10px;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 16px;
+            display: none;
         }
 
         /* Dark Mode / Light Mode Toggle */
@@ -123,80 +98,62 @@
             cursor: pointer;
             z-index: 1000;
         }
+
     </style>
 </head>
 
 <body>
 
-    <h1 class="title">Avera.Solutions</h1>
+    <h1>Avera.Solutions</h1>
 
-    <!-- Carousel Section -->
-    <div class="carousel-container">
-
-        <!-- Carousel Content for FiveM -->
-        <div class="carousel-content active" id="carousel1">
-            <img src="https://via.placeholder.com/400x200?text=FiveM+Image" alt="FiveM">
-            <h3>FiveM</h3>
-            <a href="https://example.com/fivem" target="_blank">
-                <button class="carousel-button">Download FiveM</button>
-            </a>
-        </div>
-
-        <!-- Carousel Content for Spoofer -->
-        <div class="carousel-content" id="carousel2">
-            <img src="https://via.placeholder.com/400x200?text=Spoofer+Image" alt="Spoofer">
-            <h3>Spoofer</h3>
-            <a href="https://example.com/spoofer" target="_blank">
-                <button class="carousel-button">Download Spoofer</button>
-            </a>
-        </div>
-
-        <!-- Carousel Content for Valorant -->
-        <div class="carousel-content" id="carousel3">
-            <img src="https://via.placeholder.com/400x200?text=Valorant+Image" alt="Valorant">
-            <h3>Valorant</h3>
-            <a href="https://example.com/valorant" target="_blank">
-                <button class="carousel-button">Download Valorant</button>
-            </a>
-        </div>
-
-        <!-- Left and Right Arrows -->
-        <button class="arrow-button arrow-left" onclick="moveCarousel(-1)">
-            <i class="fas fa-chevron-left"></i>
-        </button>
-        <button class="arrow-button arrow-right" onclick="moveCarousel(1)">
-            <i class="fas fa-chevron-right"></i>
-        </button>
+    <!-- Key Box to Copy -->
+    <div class="key-box-container">
+        <h3>
+            Key: <span id="key-box" class="key-box" onclick="copyKey()">avera.solutions</span>
+        </h3>
     </div>
 
     <!-- Dark Mode / Light Mode Toggle -->
     <button id="dark-mode-toggle" onclick="toggleDarkMode()">
-        <i id="mode-icon" class="fas fa-moon"></i> <!-- Moon icon for dark mode -->
+        <i id="mode-icon" class="fas fa-moon"></i>
     </button>
 
+    <!-- Notification after copying -->
+    <div id="notification" class="notification">
+        Key copied to clipboard!
+    </div>
+
     <script>
-        // Keep track of the current carousel index
-        let currentIndex = 1;
-        const totalCarouselItems = 3;
+        // Function to copy the key text to the clipboard
+        function copyKey() {
+            const keyText = document.getElementById('key-box').textContent;
+            navigator.clipboard.writeText(keyText).then(function() {
+                // Notify the user that the text was copied
+                showNotification("Key copied to clipboard!");
 
-        // Function to change the carousel item based on left or right button click
-        function moveCarousel(direction) {
-            currentIndex += direction;
+                // Shrink the key box after copying
+                const keyBox = document.getElementById('key-box');
+                keyBox.style.transform = "scale(0.9)";
 
-            // If the index goes out of bounds, wrap it around
-            if (currentIndex > totalCarouselItems) {
-                currentIndex = 1;
-            }
-            if (currentIndex < 1) {
-                currentIndex = totalCarouselItems;
-            }
+                // Reset the size of the key box after a short delay
+                setTimeout(() => {
+                    keyBox.style.transform = "scale(1)";
+                }, 300);
+            }).catch(function(err) {
+                console.error('Error copying text: ', err);
+            });
+        }
 
-            // Hide all carousel items and show the one based on the current index
-            for (let i = 1; i <= totalCarouselItems; i++) {
-                document.getElementById('carousel' + i).classList.remove('active');
-            }
+        // Show a notification
+        function showNotification(message) {
+            const notification = document.getElementById("notification");
+            notification.textContent = message;
+            notification.style.display = "block";
 
-            document.getElementById('carousel' + currentIndex).classList.add('active');
+            // Hide notification after 3 seconds
+            setTimeout(() => {
+                notification.style.display = "none";
+            }, 3000);
         }
 
         // Toggle between dark and light mode
