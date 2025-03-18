@@ -47,6 +47,10 @@
             align-items: center;
             margin-top: 20px;
             flex-direction: column;
+            position: relative;
+            max-width: 80%; /* Smaller width */
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .carousel-content {
@@ -80,6 +84,29 @@
 
         .carousel-button:hover {
             background-color: #4752c4;
+        }
+
+        /* Left and Right Arrow Buttons */
+        .arrow-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        .arrow-left {
+            left: 10px;
+        }
+
+        .arrow-right {
+            right: 10px;
         }
 
         /* Dark Mode / Light Mode Toggle */
@@ -131,6 +158,14 @@
                 <button class="carousel-button">Download Valorant</button>
             </a>
         </div>
+
+        <!-- Left and Right Arrows -->
+        <button class="arrow-button arrow-left" onclick="moveCarousel(-1)">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="arrow-button arrow-right" onclick="moveCarousel(1)">
+            <i class="fas fa-chevron-right"></i>
+        </button>
     </div>
 
     <!-- Dark Mode / Light Mode Toggle -->
