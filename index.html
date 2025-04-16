@@ -1,53 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http="Expires" content="0">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Avera.Solutions</title>
-    <link rel="stylesheet" href="style.css"> <!-- Make sure the path is correct -->
+    <title>avera.solutions</title>
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- tsParticles CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@1.37.5/dist/tsparticles.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body>
+<body class="dark-mode"> <!-- Dark mode by default -->
+
+    <!-- Particles container -->
+    <div id="tsparticles"></div>
 
     <h1>Avera.Solutions</h1>
 
-    <!-- Carousel Container -->
-    <div class="carousel-container">
-        <!-- First Item (FiveM) -->
-        <div id="item1" class="carousel-item active">
-            <img src="https://pluspng.com/img-png/fivem-logo-png-open-ports-on-your-router-for-fivem-512x512.png" alt="FiveM Logo">
-            <p>FiveM</p>
-        </div>
+    <div class="content-wrapper">
+        <!-- Box around the Key text, which can be clicked to copy -->
+        <h3>
+            Key: <span id="key-box" class="key-box" onclick="copyKey()">avera.solutions</span>
+        </h3>
 
-        <!-- Second Item (Spoofer) -->
-        <div id="item2" class="carousel-item">
-            <img src="https://i.imgur.com/vX0l4Kn.png" alt="Spoofer Logo"> <!-- Change to your desired image URL -->
-            <p>Spoofer</p>
-        </div>
-
-        <!-- Third Item (Valorant) -->
-        <div id="item3" class="carousel-item">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Valorant_logo_2021.svg/1200px-Valorant_logo_2021.svg.png" alt="Valorant Logo">
-            <p>Valorant</p>
-        </div>
-
-        <!-- Carousel Navigation -->
-        <button class="carousel-nav-button carousel-prev" onclick="prevItem()">&#8249;</button>
-        <button class="carousel-nav-button carousel-next" onclick="nextItem()">&#8250;</button>
+        <a href="./files/avera-solutions.exe" target="_blank">
+            <button>Install Loader</button>
+        </a>
     </div>
 
-    <!-- Key Box -->
-    <div class="key-box-container">
-        <span id="key-box" class="key-box" onclick="copyKey()">avera.solutions</span>
-    </div>
-
-    <!-- Dark Mode Toggle Button -->
+    <!-- Dark Mode / Light Mode Toggle -->
     <button id="dark-mode-toggle" onclick="toggleDarkMode()">
-        <i id="mode-icon" class="fas fa-moon"></i> <!-- Initial Moon icon for dark mode -->
+        <i id="mode-icon" class="fas fa-moon"></i> <!-- Moon icon for dark mode -->
     </button>
 
-    <!-- Notification -->
-    <div id="notification" class="notification"></div>
+    <script>
+        // Initialize tsParticles
+        tsParticles.load("tsparticles", {
+            particles: {
+                number: {
+                    value: 100,
+                    density: {
+                        enable: true,
+                        value_area: 800
+                    }
+                },
+                shape: {
+                    type: "circle"
+                },
+                color: {
+                    value: "#7800d2"  // Main color of particles
+                },
+                opacity: {
+                    value: 0.5,
+                    random: true,
+                    animation: {
+                        enable: true,
+                        speed: 1,
+                        minimumValue: 0.1
+                    }
+                },
+                size: {
+                    value: 3,
+                    random: true,
+                    animation: {
+                        enable: true,
+                        speed: 5,
+                        minimumValue: 1
+                    }
+                },
+                move: {
+                    enable: true,
+                    speed: 3,
+                    direction: "none",
+                    random: false,
+                    straight: false,
+                    outMode: "out",
+                    bounce: false
+                }
+            },
+            interactivity: {
+                detectsOn: "canvas",
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: "repulse"
+                    },
+                    onclick: {
+                        enable: true,
+                        mode: "push"
+                    }
+                }
+            }
+        });
 
-    <script src="script.js"></script> <!-- Make sure the path is correct -->
+        // Function to copy the key text to the clipboard
+        function copyKey() {
+            const keyText = document.getElementById('key-box').textContent;
+            navigator.clipboard.writeText(keyText).then(function() {
+                // Notify the user that the text was copied
+                showNotification("Key copied to clipboard!");
+                
+                // Shrink the key box after copying
+                const keyBox = document.getElementById('key-box');
+                keyBox.style.transform = "scale(0.9)";
+                
+                // Reset the size of the key box after a short delay
+                setTimeout(() => {
+                    keyBox.style.transform = "scale(1)";
+                }, 300);
+            }).catch(function(err) {
+                console.error('Error copying text: ', err);
+            });
+        }
+
+        // Show a notification
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.classList.add('notification');
+            notification.textContent = message;
+            document.body.appendChild(notification);
+
+            // Remove the notification after 3 seconds
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+
+        // Toggle between dark and light mode
+        function toggleDarkMode() {
+            const body = document.body;
+            const modeIcon = document.getElementById("mode-icon");
+
+            body.classList.toggle('dark-mode');
+
+            // Toggle between sun and moon icons
+            if (body.classList.contains('dark-mode')) {
+                modeIcon.classList.remove("fa-moon");
+                modeIcon.classList.add("fa-sun"); // Sun icon for light mode
+            } else {
+                modeIcon.classList.remove("fa-sun");
+                modeIcon.classList.add("fa-moon"); // Moon icon for dark mode
+            }
+        }
+    </script>
 </body>
 </html>
