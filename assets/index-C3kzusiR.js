@@ -11212,7 +11212,7 @@ const ym = Ls(nf)
                 }), h.jsxs("div", {
                     className: "space-y-4 text-gray-300",
                     children: [h.jsx("p", {
-                        children: "Welcome to FivemStore. By accessing our website and services, you agree to these terms:"
+                        children: "Welcome to KXZ Project. By accessing our website and services, you agree to these terms:"
                     }), h.jsx("h3", {
                         className: "text-xl font-semibold text-white mt-6",
                         children: "1. Account & Registration"
@@ -11350,7 +11350,7 @@ const ym = Ls(nf)
     })]
 });
 function xm() {
-    const e = "https://discord.gg/fivemstore"
+    const e = "https://discord.gg/ut6sPfR7jb"
       , t = "https://as1.ftcdn.net/v2/jpg/05/16/27/58/1000_F_516275801_f3Fsp17x6HQK0xQgDQEELoTuERO4SsWV.jpg"
       , [n,r] = _.useState(null);
     _.useEffect( () => {
@@ -11469,9 +11469,9 @@ function xm() {
         game: "FiveM Spoofer"
     }, {
         rating: 5,
-        comment: "I bought the Macho cheat from FivemStore and they took good care of me and gave me a good discount for being an old customer LOLLL",
+        comment: "I bought the Spoofer from KXZ Project and they took good care of me and gave me a good discount for being an old customer LOLLL",
         user: "IR******",
-        game: "FiveM Cheat"
+        game: "FiveM Spoofer"
     }, {
         rating: 5,
         comment: "I lost my rockstar games information because I formatted my computer and bought a rockstar account from scratch. Very good service at this price ",
@@ -11502,11 +11502,11 @@ function xm() {
                         className: "flex items-center",
                         children: [h.jsx("img", {
                             src: "https://i.hizliresim.com/l5zgmky.png",
-                            alt: "FivemStore Logo",
+                            alt: "KXZ Project Logo",
                             className: "w-8 h-8"
                         }), h.jsx("span", {
                             className: "ml-2 text-xl font-bold text-white",
-                            children: "FivemStore"
+                            children: "KXZ Project"
                         })]
                     }), h.jsxs("div", {
                         className: "flex items-center space-x-6",
@@ -11546,7 +11546,7 @@ function xm() {
                     className: "text-center",
                     children: [h.jsx("h1", {
                         className: "text-5xl md:text-7xl font-bold text-white mb-6",
-                        children: "Welcome to FivemStore"
+                        children: "Welcome to KXZ Project"
                     }), h.jsx("p", {
                         className: "text-xl text-gray-400 mb-8 max-w-2xl mx-auto",
                         children: "One stop solution for your gaming needs with the services we share for you!"
@@ -11640,7 +11640,7 @@ function xm() {
                             }), h.jsx("div", {
                                 className: "md:w-1/2 flex justify-end",
                                 children: h.jsx("iframe", {
-                                    src: "https://discord.com/widget?id=1212870736092340234&theme=dark",
+                                    src: "https://discord.com/widget?id=1324123820298207262&theme=dark",
                                     width: "350",
                                     height: "500",
                                     allowTransparency: !0,
@@ -11720,15 +11720,15 @@ function xm() {
                             className: "flex items-center mb-4",
                             children: [h.jsx("img", {
                                 src: "https://i.hizliresim.com/l5zgmky.png",
-                                alt: "FivemStore Logo",
+                                alt: "KXZ Project Logo",
                                 className: "w-6 h-6"
                             }), h.jsx("span", {
                                 className: "ml-2 text-white font-semibold",
-                                children: "FivemStore"
+                                children: "KXZ Project"
                             })]
                         }), h.jsx("p", {
                             className: "text-gray-400 text-sm",
-                            children: "Welcome to Fivem Store. We wish you a pleasant shopping experience."
+                            children: "Welcome to KXZ Project. We wish you a pleasant shopping experience."
                         })]
                     }), h.jsxs("div", {
                         children: [h.jsx("h3", {
@@ -11823,7 +11823,7 @@ function xm() {
                     className: "mt-8 pt-8 border-t border-blue-900/20 text-center",
                     children: h.jsxs("p", {
                         className: "text-gray-400 text-sm",
-                        children: ["© 2024 FivemStore. All rights reserved. ", h.jsx("a", {
+                        children: ["© 2024 KXZ Project. All rights reserved. ", h.jsx("a", {
                             href: "https://cheatglobal.com/",
                             target: "_blank",
                             rel: "noopener noreferrer",
